@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StocksCreator
@@ -24,9 +17,11 @@ namespace StocksCreator
             string name1 = textBox1.Text;
             string name2 = textBox2.Text;
             string name3 = textBox3.Text;
+            string name4 = textBox5.Text;
 
             int Numpgs = 0;
             int s = 0;
+            int i = 0;
 
             Int32.TryParse(textBox4.Text, out Numpgs);
 
@@ -39,56 +34,72 @@ namespace StocksCreator
             {
                 s = 2;
             }
-            else
+            else if (textBox5.Text == "")
             {
                 s = 3;
             }
+            else
+                s = 4;
 
 
-            using (StreamWriter sw = new StreamWriter(@"C:\Users\Sumptons\Desktop\Test.txt", append: true))
+            using (StreamWriter sw = new StreamWriter(@"C:\Users\Sumptons\Desktop\Test.txt", true))
             {
            
                 sw.WriteLine(name1);
                 sw.WriteLine("-----");
 
-                for (int i = 1; i < Numpgs; i += 3) // Page 1
+                for ( i = 1; i <= Numpgs; i += s) // Page 1
                 {
 
-                    sw.Write(i + ", ");
+                    sw.Write(i + ",");
                    
                 }
-
+                sw.WriteLine(Environment.NewLine);
                 sw.WriteLine(name2);
                 sw.WriteLine("-----");
 
-                for (int i = 2; i < Numpgs; i += 3) // Page 2
+                for ( i = 2; i <= Numpgs; i += s) // Page 2
                 {
 
-                    sw.Write(i + ", ");
+                    sw.Write(i + ",");
 
                 }
 
-                if (s == 3)
+                if (s == 3 | s == 4)
                 {
+                    sw.WriteLine(Environment.NewLine);
                     sw.WriteLine(name3);
                     sw.WriteLine("-----");
 
-                    for (int i = 3; i < Numpgs; i += 3) // Page 3
+                    for (i = 3; i <= Numpgs; i += s) // Page 3
                     {
-                        sw.Write(i + ", ");
+                        sw.Write(i + ",");
+
+                    }
+                }
+
+                if (s == 4)
+                {
+                    sw.WriteLine(Environment.NewLine);
+                    sw.WriteLine(name4);
+                    sw.WriteLine("-----");
+                    i = 0;
+
+                    for (i = 4; i <= Numpgs; i += s) // Page 3
+                    {
+                        sw.Write(i + ",");
 
                     }
                 }
 
 
-                MessageBox.Show("Complete");
 
 
 
             }
-            
 
 
+            MessageBox.Show("Complete");
 
 
 
