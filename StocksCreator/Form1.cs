@@ -14,8 +14,8 @@ namespace StocksCreator
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string name1 = textBox1.Text;
-            string name2 = textBox2.Text;
+            string name1 = textBox1.Text; // text box 1
+            string name2 = textBox2.Text; // text box 2
             string name3 = textBox3.Text;
             string name4 = textBox5.Text;
 
@@ -45,7 +45,7 @@ namespace StocksCreator
             using (StreamWriter sw = new StreamWriter(@"C:\Users\Sumptons\Desktop\Test.txt", true))
             {
            
-                sw.WriteLine(name1);
+                sw.WriteLine(name1); // name of page 1
                 sw.WriteLine("-----");
 
                 for ( i = 1; i <= Numpgs; i += s) // Page 1
@@ -54,8 +54,8 @@ namespace StocksCreator
                     sw.Write(i + ",");
                    
                 }
-                sw.WriteLine(Environment.NewLine);
-                sw.WriteLine(name2);
+                sw.WriteLine(Environment.NewLine); // add new line
+                sw.WriteLine(name2); //name of page 2
                 sw.WriteLine("-----");
 
                 for ( i = 2; i <= Numpgs; i += s) // Page 2
@@ -67,8 +67,8 @@ namespace StocksCreator
 
                 if (s == 3 | s == 4)
                 {
-                    sw.WriteLine(Environment.NewLine);
-                    sw.WriteLine(name3);
+                    sw.WriteLine(Environment.NewLine); // add new line
+                    sw.WriteLine(name3); // name of page 3
                     sw.WriteLine("-----");
 
                     for (i = 3; i <= Numpgs; i += s) // Page 3
@@ -80,8 +80,8 @@ namespace StocksCreator
 
                 if (s == 4)
                 {
-                    sw.WriteLine(Environment.NewLine);
-                    sw.WriteLine(name4);
+                    sw.WriteLine(Environment.NewLine);// add new line
+                    sw.WriteLine(name4); // name of page 4
                     sw.WriteLine("-----");
                     i = 0;
 
